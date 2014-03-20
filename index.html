@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf8">
+  <title>ember.js</title>
+</head>
+<body>
+
+  <script type="text/x-handlebars">
+    <h2>Welcome to Ember.js</h2>
+    <nav>
+      {{#link-to 'index'}}Home{{/link-to}}
+      {{#link-to 'commits'}}Commits{{/link-to}}
+    </nav>
+
+    {{outlet}}
+  </script>
+
+  <script type="text/x-handlebars" id="commits">
+    <h3>Commits</h3>
+    <ul>
+    {{#each}}
+      <li>{{#link-to 'commit' this}}{{sha}}{{/link-to}}</li>
+    {{/each}}
+    </ul>
+  </script>
+
+  <script type="text/x-handlebars" id="commit">
+    <ul>
+      <li>sha: {{sha}}</li>
+      <li>{{commit.author.name}}</li>
+    </ul>
+  </script>
+
+<script src="js/lib/jquery.js"></script>
+<script src="js/lib/handlebars.js"></script>
+<script src="js/lib/ember.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
+
